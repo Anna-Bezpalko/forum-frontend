@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+#root {
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  background: #f5f7fc;
+  color: #202943;
+}
+
+.header {
+  padding: 32px 8% 64px;
+  color: white;
+  background: linear-gradient(135deg, #18254a, #384e87);
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.logo-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 14px;
+  background: #a9c7ff;
+  color: #1c2c55;
+  font-size: 24px;
+}
+
+.header-text {
+  max-width: 700px;
+  margin: 54px auto 0;
+  text-align: center;
+}
+
+.header-text h1 {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+}
+
+.header-text p {
+  margin: 18px 0 0;
+  color: #d5def4;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.main-content {
+  width: min(100% - 40px, 1050px);
+  margin: -24px auto 0;
+  position: relative;
+  padding-bottom: 56px;
+}
+
+.post-list {
+  padding: 30px;
+  border: 1px solid #e6eaf3;
+  border-radius: 24px;
+  background: white;
+  box-shadow: 0 16px 45px rgb(33 48 83 / 7%);
+}
+
+.feed-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 26px;
+}
+
+.feed-heading h2 {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 25px;
+}
+
+.feed-heading p {
+  margin: 8px 0 0;
+  color: #7a849c;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.post-count {
+  flex-shrink: 0;
+  padding: 8px 13px;
+  border-radius: 20px;
+  background: #eef2ff;
+  color: #435ba4;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.post-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid #e8ebf3;
+  border-radius: 18px;
+  background: #fff;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+  border-color: #c6d4ff;
+  box-shadow: 0 12px 28px rgb(42 61 105 / 9%);
+}
+
+.post-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.post-category {
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #edf2ff;
+  color: #4a61ad;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.post-id {
+  color: #a0a8ba;
+  font-size: 12px;
+}
+
+.post-title {
+  margin: 20px 0 10px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 20px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.post-content {
+  margin: 0 0 24px;
+  color: #737e96;
+  font-size: 14px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.post-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid #eef0f6;
+  color: #39445f;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.author-avatar {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 50%;
+  background: #e7ecff;
+  color: #465da8;
+  font-weight: 700;
+}
+
+.footer {
+  padding: 26px 20px;
+  color: #8992a8;
+  font-size: 13px;
+  text-align: center;
+}
+
+@media (max-width: 650px) {
+  .header {
+    padding: 24px 20px 52px;
+  }
+
+  .header-text {
+    margin-top: 42px;
+  }
+
+  .header-text p {
+    font-size: 14px;
+  }
+
+  .main-content {
+    width: calc(100% - 24px);
+  }
+
+  .post-list {
+    padding: 20px 14px;
+    border-radius: 18px;
+  }
+
+  .feed-heading {
+    align-items: flex-start;
+  }
+
+  .feed-heading h2 {
+    font-size: 21px;
+  }
+
+  .feed-heading p {
+    font-size: 13px;
+  }
+
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .post-card {
+    padding: 20px;
+  }
+}

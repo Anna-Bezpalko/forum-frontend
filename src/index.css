@@ -1,0 +1,28 @@
+* { 
+  box-sizing: border-box; 
+}
+
+html { 
+  min-width: 320px; 
+  scroll-behavior: smooth; 
+}
+
+body { 
+  margin: 0; 
+  min-width: 320px; 
+  min-height: 100vh; 
+  font-family: "DM Sans", sans-serif; 
+  -webkit-font-smoothing: antialiased; 
+  -moz-osx-font-smoothing: grayscale; 
+}
+
+button, 
+input, 
+textarea { 
+  font: inherit; 
+}
+
+::selection { 
+  background: #cbd8ff; 
+  color: #18254a; 
+}
