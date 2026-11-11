@@ -9,10 +9,22 @@ interface ApiPost {
   category?: string | { name?: string } | null;
 }
 
+interface RegisterData {
+  name: string;
+  email: string;
+  password: string;
+}
+
+interface LoginData {
+  email: string;
+  password: string;
+}
+
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:3000",
+    credentials: "include",
   }),
   endpoints: (builder) => ({
     getPosts: builder.query<Post[], void>({
@@ -32,7 +44,27 @@ export const baseApi = createApi({
               : post.category?.name ?? "General",
         })),
     }),
+
+    register: builder.mutation<unknown, RegisterData>({
+      query: (data) => ({
+        url: "/users/register",
+        method: "POST",
+        body: data,
+      }),
+    }),
+
+    login: builder.mutation<unknown, LoginData>({
+      query: (data) => ({
+        url: "/users/login",
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 });
 
-export const { useGetPostsQuery } = baseApi;
+export const {
+  useGetPostsQuery,
+  useRegisterMutation,
+  useLoginMutation,
+} = baseApi;

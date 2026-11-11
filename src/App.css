@@ -238,3 +238,32 @@
     padding: 20px;
   }
 }
+
+.auth-container {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.auth-form {
+  width: 300px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.auth-form h2 {
+  text-align: center;
+}
+
+.auth-form input {
+  display: block;
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.auth-form button {
+  padding: 10px;
+  cursor: pointer;
+}
