@@ -20,15 +20,21 @@ interface LoginData {
   password: string;
 }
 
+interface User {
+  email: string;
+}
+
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:3000",
     credentials: "include",
   }),
+  tagTypes: ["Posts", "Auth"],
   endpoints: (builder) => ({
     getPosts: builder.query<Post[], void>({
       query: () => "/posts",
+      providesTags: ["Posts"],
       transformResponse: (response: ApiPost[]) =>
         response.map((post) => ({
           id: post.id,
@@ -45,26 +51,34 @@ export const baseApi = createApi({
         })),
     }),
 
+    getMe: builder.query<User, void>({
+      query: () => "/auth/me",
+      providesTags: ["Auth"],
+    }),
+
     register: builder.mutation<unknown, RegisterData>({
       query: (data) => ({
         url: "/users/register",
         method: "POST",
         body: data,
-      }),
     }),
-
-    login: builder.mutation<unknown, LoginData>({
-      query: (data) => ({
-        url: "/users/login",
-        method: "POST",
-        body: data,
-      }),
-    }),
+    invalidatesTags: ["Auth"],
   }),
+
+  login: builder.mutation<unknown, LoginData>({
+    query: (data) => ({
+      url: "/users/login",
+      method: "POST",
+      body: data,
+    }),
+    invalidatesTags: ["Auth"],
+  }),
+}),
 });
 
 export const {
-  useGetPostsQuery,
-  useRegisterMutation,
-  useLoginMutation,
+useGetPostsQuery,
+useGetMeQuery,
+useRegisterMutation,
+useLoginMutation,
 } = baseApi;
